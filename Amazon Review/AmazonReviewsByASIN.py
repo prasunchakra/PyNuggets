@@ -63,7 +63,7 @@ def multiple_review(asin):
     return (reviews_list)
 
 def ParseReviews(asin):
-    amazon_url = 'http://www.amazon.com/dp/' + asin
+    amazon_url = 'http://www.amazon.in/dp/' + asin
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
@@ -125,11 +125,13 @@ def ParseReviews(asin):
 
 def ReadAsin():
     # Add your own ASINs here
-    AsinList = ['B01J8PBEUM','B075SDL9CH','B077Y8JPDQ']
+    AsinList = ['B09WRMNJ9G']
     extracted_data = []
     for asin in AsinList:
-        print("Downloading and processing page http://www.amazon.com/dp/" + asin)
+        print("Downloading and processing page http://www.amazon.in/dp/" + asin)
         extracted_data.append(ParseReviews(asin))
+        print("#######")
+        print(extracted_data);
         sleep(5)
         f = open('{}.json'.format(asin), 'w')
         json.dump(extracted_data, f, indent=4)

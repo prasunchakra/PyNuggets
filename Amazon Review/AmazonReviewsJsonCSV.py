@@ -12,13 +12,13 @@ xpath_date    = './/span[@data-hook="review-date"]//text()'
 xpath_body    = './/span[@data-hook="review-body"]//text()'
 xpath_comment_count = './/span[@data-hook="review-comment"]//text()'
 
-AsinList = ['B075SDL9CH','B077Y8JPDQ']
+AsinList = ['B09WRMNJ9G']
 for asin in AsinList:
     pageNumber = 0
     extracted_data = []
     while (1):
         pageNumber +=1
-        amazon_url = 'https://www.amazon.com/product-reviews/{}?pageNumber={}&sortBy=recent'.format(asin,pageNumber)
+        amazon_url = 'https://www.amazon.in/product-reviews/{}?pageNumber={}&sortBy=recent'.format(asin,pageNumber)
         page = requests.get(amazon_url, headers=headers)
         parser = html.fromstring(page.content)
         reviews = parser.xpath(xpath_reviews)
