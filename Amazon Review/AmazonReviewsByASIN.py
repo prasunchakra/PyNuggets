@@ -1,5 +1,7 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+@author: prasunchakra
+"""
 from lxml import html
 import json
 import requests
@@ -21,7 +23,7 @@ def multiple_review(asin):
     reviews_list = []
     while (1):
         pageNumber +=1
-        review_url = 'https://www.amazon.com/product-reviews/{}?pageNumber={}&sortBy=recent'.format(asin,pageNumber)
+        review_url = 'https://www.amazon.in/product-reviews/{}?pageNumber={}&sortBy=recent'.format(asin,pageNumber)
         page = requests.get(review_url, headers=headers)
         parser = html.fromstring(page.content)
         reviews = parser.xpath(xpath_reviews)
