@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 @author: prasunchakra
+Based on RFC 2822 Section 3.4.1 (http://tools.ietf.org/html/rfc2822#section-3.4.1)
+with the help of http://www.regular-expressions.info/email.html
 """
 import re
 
@@ -35,5 +37,6 @@ if __name__ == '__main__':
 
     for email in exampleEmails:
         is_valid = is_valid_email(email)
-        print(is_valid)  # Output: True
+        print(is_valid)
+
 

@@ -18,8 +18,11 @@ def count(inputxlsx,inputsheet,inputcolumn,outputcolumn):
         
 
 if __name__ == '__main__':
-    inputxlsx = 'YellowPages.xlsx'
+    inputxlsx = 'file_example_XLSX_1000.xlsx'
     sheet = 'Sheet1'
-    inputcolumn = 'A'
-    outputcolumn = 'B'    
+    inputcolumn = 'Age'
+    outputcolumn = 'B'
+    print('XXX')
     count(inputxlsx,sheet,inputcolumn,outputcolumn)
+    print('XXX')
+
