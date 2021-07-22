@@ -3,7 +3,8 @@ from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 import pdb,time
-wbook = load_workbook(filename = 'San Diego, CA.xlsx')
+fileName = ''
+wbook = load_workbook(filename = fileName)
 wsheet = wbook['San Diego 2017 Batch 2 Raw Data']
 #sheet_ranges['F5'] = 3.14
 #wb.save('San Diego, CA.xlsx')
@@ -50,8 +51,8 @@ while (row <5680):
     finally:
         if row%10 == 0:
             print("Saved")
-            wbook.save('San Diego, CA.xlsx')
-wbook.save('San Diego, CA.xlsx')
+            wbook.save(fileName)
+wbook.save(fileName)
 print ('*'*100)
 time_elapsed = (time.clock() - time_start)
 print ("Time Taken in minutes",time_elapsed/60)

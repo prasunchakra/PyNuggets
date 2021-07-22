@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Mar 17 00:33:54 2018
-
-@author: lordprasun
+@author: prasunchakra
 """
 
 import urllib.request as ur

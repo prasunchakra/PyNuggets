@@ -19,8 +19,13 @@ PyNuggets is a curated collection of not-so-common, yet highly useful Python cod
   - use of Selenium, Openpyxl and time
 - Gsheet_data_pull
   - Pull data from Google sheets after authentication
-  - use of oauth2client and gspread 
-  
+  - use of oauth2client and gspread
+- KeyBoardMouseOperation:
+  - Capture keyboard and mouse action in the script
+  - use of selenium action chains and keys
+- login_to_sprout:
+  - Login to sprouts video programatically
+  - use of selenium
 - 
 - Activate the Virtual Environment: `. myenv/bin/activate`
 - Generate the requirements.txt file: `pip freeze > requirements.txt`

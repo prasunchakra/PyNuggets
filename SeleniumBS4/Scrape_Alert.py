@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Mar 17 00:33:54 2018
-
-@author: lordprasun
+@author: prasunchakra
 """
+
+import urllib.request as ur
 from bs4 import BeautifulSoup
 import config,re
 import ctypes,time
 import winsound
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 
 def sendalert(messages):
     duration = 1000
@@ -17,22 +15,7 @@ def sendalert(messages):
     winsound.Beep(freq, duration)
     ctypes.windll.user32.MessageBoxW(0, messages, "Web Scrap Report", 1)
     
-def getpage(url):
-    options = Options()
-    options.add_argument("--headless")
-    driver = webdriver.Firefox(firefox_options=options)
-    driver.get('http://tech.sina.com.cn/apple/')
-    lenOfPage = driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
-    match=False
-    while(match==False):
-        lastCount = lenOfPage
-        time.sleep(3)
-        lenOfPage = driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
-        if lastCount==lenOfPage:
-            match=True
-    html = driver.page_source
-    soup = BeautifulSoup(html, "lxml")
-    return soup
+
 def findurl(web_content):
     link_address = []
     for keys in config.Keywords:
@@ -47,8 +30,12 @@ if __name__=="__main__":
     while(1):
         new_list=[]
         for urls in config.Url:
-            web_content = getpage(urls)
-            updated_links = findurl(web_content)
+            print (urls)
+            web = ur.urlopen(urls)
+            time.sleep(15)
+            content = web.read()
+            web_content =BeautifulSoup(content,"lxml")
+            updated_links=findurl(web_content)
             for link in updated_links:
                 new_list.append(list(link.keys())[0])
             
